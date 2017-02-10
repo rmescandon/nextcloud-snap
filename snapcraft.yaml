@@ -1,11 +1,18 @@
 name: nextcloud-nextant
-version: 11.0.0snap3
+version: 11.0.0snap4
 summary: Nextcloud Server + search support
 description: |
  Access, share and protect your files, calendars, contacts, communication and
  more at home and in your enterprise.
 confinement: strict
 grade: stable
+
+slots:
+  nextcloud-data:
+    content: nextcloud-documents
+    interface: content
+    write:
+      - $SNAP_COMMON/nextcloud/data
 
 apps:
   # Apache daemon
@@ -364,3 +371,4 @@ parts:
     stage-packages: [openssl]
     stage: [-etc/ssl]
     snap: [-etc/ssl]
+
